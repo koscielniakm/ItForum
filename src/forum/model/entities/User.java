@@ -46,8 +46,14 @@ public class User implements Serializable, DatabaseEntity {
 		mappedBy = "author",
 		cascade = CascadeType.ALL,
 		fetch = FetchType.EAGER)
-	Set<Topic> postedTopic;
+	private Set<Topic> postedTopic;
 	
+	@OneToMany(
+		mappedBy = "answerAuthor",
+		cascade = CascadeType.ALL,
+		fetch = FetchType.EAGER)
+	private Set<Answer> postedAnswers;
+
 	public Integer getId() {
 		return id;
 	}
@@ -66,6 +72,9 @@ public class User implements Serializable, DatabaseEntity {
 	public Set<Topic> getPostedTopic() {
 		return postedTopic;
 	}
+	public Set<Answer> getPostedAnswers() {
+		return postedAnswers;
+	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -83,6 +92,9 @@ public class User implements Serializable, DatabaseEntity {
 	}
 	public void setPostedTopic(Set<Topic> postedTopic) {
 		this.postedTopic = postedTopic;
+	}
+	public void setPostedAnswers(Set<Answer> postedAnswers) {
+		this.postedAnswers = postedAnswers;
 	}
 	
 }

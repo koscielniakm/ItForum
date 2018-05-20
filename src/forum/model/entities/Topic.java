@@ -2,7 +2,9 @@ package forum.model.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,12 +30,18 @@ public class Topic implements Serializable, DatabaseEntity {
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-
+	
 	@ManyToOne(
-			fetch = FetchType.EAGER,
-			targetEntity = User.class)
+		fetch = FetchType.EAGER,
+		targetEntity = User.class)
 	@JoinColumn(name = "id_user")
 	private User author;
+	
+	@OneToMany(
+		mappedBy = "answerTopic",
+		cascade = CascadeType.ALL,
+		fetch = FetchType.EAGER)
+	private Set<Answer> answers;
 	
 	@Column(name = "title")
 	private String title;
@@ -50,6 +59,9 @@ public class Topic implements Serializable, DatabaseEntity {
 	public User getAuthor() {
 		return author;
 	}
+	public Set<Answer> getAnswers() {
+		return answers;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -64,6 +76,9 @@ public class Topic implements Serializable, DatabaseEntity {
 	}
 	public void setAuthor(User author) {
 		this.author = author;
+	}
+	public void setAnswers(Set<Answer> answers) {
+		this.answers = answers;
 	}
 	public void setTitle(String title) {
 		this.title = title;
