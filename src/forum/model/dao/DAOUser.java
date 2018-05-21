@@ -2,6 +2,8 @@ package forum.model.dao;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import forum.model.entities.User;
 
 public class DAOUser extends AbstractDAO implements DAO<User> {
@@ -34,6 +36,16 @@ public class DAOUser extends AbstractDAO implements DAO<User> {
 				createQuery("FROM User u", User.class).getResultList();
 		closeEntityManager();
 		return users;
+	}
+	
+	public boolean checkUserExistence(String login, String email) {
+	    Query query = getEntityManager().
+	    	createQuery("SELECT COUNT(u) FROM User u WHERE login = :login OR email = :email");
+	    query.setParameter("login", login);
+	    query.setParameter("email", email);
+	    long userNumber = (long) query.getSingleResult();
+	    if (userNumber == 0) return false;
+	    else return true;
 	}
 
 }
