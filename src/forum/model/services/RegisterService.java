@@ -31,7 +31,7 @@ public class RegisterService {
 		else return RegisterResult.SUCCESS;
 	}
 	private static RegisterResult correctRegisterData(String login, String password,
-														String password2, String email) {
+		String password2, String email) {
 		RegisterResult[] checkResults = new RegisterResult[4];
 		checkResults[0] = correctLogin(login);
 		checkResults[1] = correctPassword(password, password2);
@@ -43,7 +43,7 @@ public class RegisterService {
 			if (result == RegisterResult.SUCCESS)
 				positiveChecks += 1;
 			else wrong = result;
-		if (positiveChecks == 4) return RegisterResult.SUCCESS;
+		if (positiveChecks == checkResults.length) return RegisterResult.SUCCESS;
 		else return wrong; /* undefined error */
 		
 	}
