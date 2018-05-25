@@ -1,2 +1,4 @@
-/build
-/WebContent/WEB-INF/lib/*
+/build/
+/WebContent/META-INF/*
+/WebContent/WEB-INF/*
+

@@ -1,4 +1,4 @@
-package forum.model.services;
+package forum.model.services.management;
 
 import forum.model.dao.DAOTopic;
 import forum.model.entities.Topic;

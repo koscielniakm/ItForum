@@ -1,4 +1,4 @@
-package forum.model.misc;
+package forum.model.services.account;
 
 public class PasswordHasher {
 	
@@ -7,7 +7,7 @@ public class PasswordHasher {
 	private static String salt = "9231984066775208";
 		
 	/* simple and basic algorithm of password hash */
-	public static String hash(String password) {
+	public synchronized static String hash(String password) {
 		String hashedPassword = password.hashCode() - 20 + salt;
 		return hashedPassword;
 	}

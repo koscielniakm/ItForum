@@ -64,8 +64,8 @@ public abstract class AbstractDAO {
 				currentTransation.begin();
 				Query query = entityManager
 					.createQuery("DELETE " + entityClass.getName() + " e where e.id = :id");
-		        query.setParameter("id", id);
-		        query.executeUpdate();
+				query.setParameter("id", id);
+				query.executeUpdate();
 				currentTransation.commit();
 			} catch (Exception exception) {
 				exception.printStackTrace();
