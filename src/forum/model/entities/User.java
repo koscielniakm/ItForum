@@ -45,13 +45,15 @@ public class User implements Serializable, DatabaseEntity {
 	@OneToMany(
 		mappedBy = "author",
 		cascade = CascadeType.ALL,
-		fetch = FetchType.EAGER)
+		fetch = FetchType.EAGER,
+		orphanRemoval = true)
 	private Set<Topic> postedTopic;
 	
 	@OneToMany(
 		mappedBy = "answerAuthor",
 		cascade = CascadeType.ALL,
-		fetch = FetchType.EAGER)
+		fetch = FetchType.EAGER,
+		orphanRemoval = true)
 	private Set<Answer> postedAnswers;
 
 	public Integer getId() {

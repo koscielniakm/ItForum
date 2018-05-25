@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import forum.model.entities.DatabaseEntity;
 
@@ -55,20 +56,22 @@ public abstract class AbstractDAO {
 			}
 		}
 	}
-	protected void deleteRecord(Class<?> entityClass, Integer id) {
-		if (id > 0) {	
+	protected <T extends DatabaseEntity> void deleteRecord(Class<T> entityClass, Integer id) {
+		if (id > 0) {
 			EntityManager entityManager = getEntityManager();
 			try {
 				EntityTransaction currentTransation = entityManager.getTransaction();
 				currentTransation.begin();
-				entityManager.remove(entityManager.find(entityClass, id));
-				currentTransation.commit();			
-			} catch (IllegalArgumentException exception) {
+				Query query = entityManager
+					.createQuery("DELETE " + entityClass.getName() + " e where e.id = :id");
+		        query.setParameter("id", id);
+		        query.executeUpdate();
+				currentTransation.commit();
+			} catch (Exception exception) {
 				exception.printStackTrace();
 			} finally {
-				closeEntityManager();	
+				closeEntityManager();
 			}
 		}
-	}	
-
+	}
 }
