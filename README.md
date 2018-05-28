@@ -1,2 +1,0 @@
-# Forum
-Simple web application.
