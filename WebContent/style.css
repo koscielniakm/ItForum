@@ -1,0 +1,22 @@
+body{
+	color: white;
+	background: #252525;
+	font-family: 'Montserrat', sans-serif;
+}
+th{
+	text-align: center;
+}
+.jumbotron{
+	background: #252525;
+	border-radius: none;
+}
+.panel-heading{
+	background: #404040;
+	color: white;
+}
+.panel-body{
+	color: #252525;
+}
+.glyphicon{
+	margin-right: 10px;
+}
