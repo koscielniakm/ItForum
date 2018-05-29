@@ -1,6 +1,6 @@
 /build/
 /WebContent/META-INF/*
 /WebContent/WEB-INF/*
-/WebContent/js
-/WebContent/css
-/WebContent/fonts
+/WebContent/js/*
+/WebContent/css/*
+/WebContent/fonts/*
