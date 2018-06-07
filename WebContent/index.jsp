@@ -15,36 +15,28 @@
 		<jsp:include page="navbar.jsp" />
 		<div class="jumbotron">
 			<h1>Forum</h1>
-			<p>Strona główna</p>
 		</div>
-		<div class="panel panel-default">
-			<div class="panel-heading">
+		<div class="panel panel-default row">
+			<div class="panel-heading bg-primary text-dark">
 				<h3 class="panel-title">
-					<i class="glyphicon glyphicon glyphicon-star"></i>
-					<span>Tematy</span>
+					<span>Tematy </span><a href="create">[Utwórz temat]</a>
 				</h3>
 			</div>
 			<div class="panel-body">
 				<table class="table table-stripped">
 					<thread>
 						<tr class="text-center">
-							<th class="col-lg-6">Temat</th>
-							<th class="col-lg-3">Autor</th>
-							<th class="col-lg-3">Data utworzenia</th>
+							<th class="col-lg-8 text-center">Temat</th>
+							<th class="col-lg-2 text-center">Autor</th>
+							<th class="col-lg-2 text-center">Data utworzenia</th>
 						</tr>
 					</thread>
 					<tbody>
 						<c:forEach var="t" items="${ requestScope.topicList }">
 							<tr>
-								<td class="col-lg-6">${ t.title }</td>
-								<td class="col-lg-3 text-center">${ t.author.login }</td>
+								<td class="col-lg-8"><a href="topic?id=${ t.id }">${ t.title }</a></td>
+								<td class="col-lg-2 text-center">${ t.author.login }</td>
 								<td class="col-lg-2 text-center">${ t.postDate }</td>
-								<td class="col-lg-2 text-center">
-									<form action="topic" method="get">
-										<input type="hidden" name="id" value="${ t.id }" />
-										<input type="submit" value="Zobacz" class="text-primary btn btn-default" />
-									</form>
-								</td>
 							</tr>
 						</c:forEach>
 					</tbody>

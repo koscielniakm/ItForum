@@ -19,11 +19,21 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "answer")
-public class AnswerEntity implements Serializable, IdEntity {
+public class AnswerEntity implements Serializable, IdEntity, Comparable<AnswerEntity> {
 
 	public AnswerEntity() { }
 	
 	private static final long serialVersionUID = 8983526945864245917L;
+	
+	@Override
+	public int compareTo(AnswerEntity answer) {
+		if (this.postDate.equals(answer.postDate))
+			return 0;
+		else if (this.postDate.after(answer.postDate))
+			return 1;
+		else
+			return -1;
+	}
 	
 	@Id
 	@Column(name = "id")

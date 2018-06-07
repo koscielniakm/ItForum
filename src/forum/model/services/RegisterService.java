@@ -36,7 +36,7 @@ public class RegisterService {
 	}
 	private RegisterResult correctRegisterData(String login, String password,
 		String password2, String email) {
-		RegisterResult[] checkResults = new RegisterResult[4];
+		RegisterResult[] checkResults = new RegisterResult[5];
 		checkResults[0] = correctLogin(login);
 		checkResults[1] = comparePasswords(password, password2);
 		checkResults[2] = correctPassword(password);
@@ -60,7 +60,7 @@ public class RegisterService {
 		else return RegisterResult.ERROR_WRONG_PASSWORD;
 	}
 	private RegisterResult comparePasswords(String firstPassword, String secondPassword) {
-		if (firstPassword == secondPassword) return RegisterResult.SUCCESS;
+		if (firstPassword.equals(secondPassword)) return RegisterResult.SUCCESS;
 		else return RegisterResult.ERROR_DIFFERENT_PASSWORDS;
 	}
 	private RegisterResult correctEmail(String email) {
@@ -71,7 +71,7 @@ public class RegisterService {
 	private void createNewUser(String login, String password, String email) {
 		UserEntity createdUser = new UserEntity();
 		createdUser.setLogin(login);
-		createdUser.setEmail(email);
+		createdUser.setEmail(email.toLowerCase());
 		createdUser.setPassword(PasswordHasher.hash(password));
 		createdUser.setRegisterDate(new Date());
 		userAccess.create(createdUser);

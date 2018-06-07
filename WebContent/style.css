@@ -1,22 +1,10 @@
 body{
-	color: white;
-	background: #252525;
-	font-family: 'Montserrat', sans-serif;
+	color: black;
 }
-th{
-	text-align: center;
+p{
+	color: black;
 }
-.jumbotron{
-	background: #252525;
-	border-radius: none;
-}
-.panel-heading{
-	background: #404040;
-	color: white;
-}
-.panel-body{
-	color: #252525;
-}
-.glyphicon{
-	margin-right: 10px;
+#login-panel{
+	float: right;
+	text-align: right;
 }

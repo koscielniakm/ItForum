@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -43,7 +43,7 @@ public class TopicEntity implements Serializable, IdEntity {
 		mappedBy = "answerTopic",
 		cascade = CascadeType.ALL,
 		fetch = FetchType.EAGER)
-	private Set<AnswerEntity> answers;
+	private List<AnswerEntity> answers;
 	
 	@Column(name = "title")
 	private String title;
@@ -61,7 +61,7 @@ public class TopicEntity implements Serializable, IdEntity {
 	public UserEntity getAuthor() {
 		return author;
 	}
-	public Set<AnswerEntity> getAnswers() {
+	public List<AnswerEntity> getAnswers() {
 		return answers;
 	}
 	public String getTitle() {
@@ -80,7 +80,7 @@ public class TopicEntity implements Serializable, IdEntity {
 	public void setAuthor(UserEntity author) {
 		this.author = author;
 	}
-	public void setAnswers(Set<AnswerEntity> answers) {
+	public void setAnswers(List<AnswerEntity> answers) {
 		this.answers = answers;
 	}
 	public void setTitle(String title) {
