@@ -8,6 +8,7 @@ public class DataValidator {
 	private static final int MAX_PASSWORD_LENGTH = 20;
 	
 	public boolean validateEmail(String email) {
+		if (email == null) return false;
 		/* checking at sign and dot apperance */
 		boolean atSignChecked = false;
 		boolean dotSignChecked = false;

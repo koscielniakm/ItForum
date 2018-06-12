@@ -18,10 +18,18 @@
 			<h1>Forum</h1>
 		</div>
 		
+		<p class="change-info">
+			<c:choose>
+				<c:when test="${ requestScope.changeinfo != null }">
+					Informacja : ${ requestScope.changeinfo }
+				</c:when>
+			</c:choose>
+		</p>
+		
 		<div class="">
 			<h3>Konto użytkownika ${ user.login }</h3>
 			
-			<form action="update" method="post">
+			<form action="changeemail" method="post">
 				<h4>Zmiana e-maila</h4>
 				<div class="form-group">
 					<input type="email" name="email" placeholder="${ user.email }"/>
