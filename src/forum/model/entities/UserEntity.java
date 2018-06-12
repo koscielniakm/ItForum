@@ -47,7 +47,7 @@ public class UserEntity implements Serializable, IdEntity {
 		cascade = CascadeType.ALL,
 		fetch = FetchType.EAGER,
 		orphanRemoval = true)
-	private Set<TopicEntity> postedTopic;
+	private Set<ThreadEntity> postedThreads;
 	
 	@OneToMany(
 		mappedBy = "answerAuthor",
@@ -71,8 +71,8 @@ public class UserEntity implements Serializable, IdEntity {
 	public Date getRegisterDate() {
 		return registerDate;
 	}
-	public Set<TopicEntity> getPostedTopic() {
-		return postedTopic;
+	public Set<ThreadEntity> getPostedThreads() {
+		return postedThreads;
 	}
 	public Set<AnswerEntity> getPostedAnswers() {
 		return postedAnswers;
@@ -92,8 +92,8 @@ public class UserEntity implements Serializable, IdEntity {
 	public void setRegisterDate(Date registerDate) {
 		this.registerDate = registerDate;
 	}
-	public void setPostedTopic(Set<TopicEntity> postedTopic) {
-		this.postedTopic = postedTopic;
+	public void setPostedThreads(Set<ThreadEntity> postedTopic) {
+		this.postedThreads = postedTopic;
 	}
 	public void setPostedAnswers(Set<AnswerEntity> postedAnswers) {
 		this.postedAnswers = postedAnswers;

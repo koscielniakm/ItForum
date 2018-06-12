@@ -32,9 +32,9 @@
 						</tr>
 					</thread>
 					<tbody>
-						<c:forEach var="t" items="${ requestScope.topicList }">
+						<c:forEach var="t" items="${ requestScope.threadList }">
 							<tr>
-								<td class="col-lg-8"><a href="topic?id=${ t.id }">${ t.title }</a></td>
+								<td class="col-lg-8"><a href="thread?id=${ t.id }">${ t.title }</a></td>
 								<td class="col-lg-2 text-center">${ t.author.login }</td>
 								<td class="col-lg-2 text-center">${ t.postDate }</td>
 							</tr>

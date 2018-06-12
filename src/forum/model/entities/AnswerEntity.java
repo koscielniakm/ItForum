@@ -48,9 +48,9 @@ public class AnswerEntity implements Serializable, IdEntity, Comparable<AnswerEn
 	
 	@ManyToOne(
 		fetch = FetchType.EAGER,
-		targetEntity = TopicEntity.class)
-	@JoinColumn(name = "id_topic")
-	private TopicEntity answerTopic;
+		targetEntity = ThreadEntity.class)
+	@JoinColumn(name = "id_thread")
+	private ThreadEntity answerThread;
 	
 	@Column(name = "post_date")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -65,8 +65,8 @@ public class AnswerEntity implements Serializable, IdEntity, Comparable<AnswerEn
 	public UserEntity getAnswerAuthor() {
 		return answerAuthor;
 	}
-	public TopicEntity getAnswerTopic() {
-		return answerTopic;
+	public ThreadEntity getAnswerThread() {
+		return answerThread;
 	}
 	public String getPostDate() {
 		DateFormat formatter = new SimpleDateFormat("HH:mm dd-MM-yyyy");
@@ -81,8 +81,8 @@ public class AnswerEntity implements Serializable, IdEntity, Comparable<AnswerEn
 	public void setAnswerAuthor(UserEntity answerAuthor) {
 		this.answerAuthor = answerAuthor;
 	}
-	public void setAnswerTopic(TopicEntity answerTopic) {
-		this.answerTopic = answerTopic;
+	public void setAnswerThread(ThreadEntity answerThread) {
+		this.answerThread = answerThread;
 	}
 	public void setPostDate(Date postDate) {
 		this.postDate = postDate;

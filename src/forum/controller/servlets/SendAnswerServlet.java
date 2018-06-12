@@ -21,16 +21,16 @@ public class SendAnswerServlet extends HttpServlet {
 	throws IOException, ServletException {
 		response.setContentType("text/html; charset=utf-8");
 		insertAnswer(request);
-		response.sendRedirect("topic?id=" + request.getParameter("tid"));
+		response.sendRedirect("thread?id=" + request.getParameter("tid"));
 	}
 	
 	private void insertAnswer(HttpServletRequest request) {
 		if (request.getSession(false).getAttribute("user") != null) {
 			String content = request.getParameter("content");
 			UserEntity author = (UserEntity) request.getSession(false).getAttribute("user");	
-			Integer topicId = Integer.parseInt(request.getParameter("tid"));
+			Integer threadId = Integer.parseInt(request.getParameter("tid"));
 			AnswerManageService answerService = new AnswerManageService();
-			answerService.insertAnswer(author.getId(), topicId, content);
+			answerService.insertAnswer(author.getId(), threadId, content);
 		}
 	}
 	
