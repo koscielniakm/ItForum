@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import forum.model.entities.UserEntity;
-import forum.model.services.AnswerService;
+import forum.model.services.AnswerManageService;
 
 @WebServlet(name = "sendanswer", urlPatterns = "/sendanswer")
 public class SendAnswerServlet extends HttpServlet {
@@ -29,7 +29,7 @@ public class SendAnswerServlet extends HttpServlet {
 			String content = request.getParameter("content");
 			UserEntity author = (UserEntity) request.getSession(false).getAttribute("user");	
 			Integer topicId = Integer.parseInt(request.getParameter("tid"));
-			AnswerService answerService = new AnswerService();
+			AnswerManageService answerService = new AnswerManageService();
 			answerService.insertAnswer(author.getId(), topicId, content);
 		}
 	}

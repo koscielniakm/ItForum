@@ -39,9 +39,8 @@ public class DataValidator {
 		else return false;
 	}
 	public boolean comparePasswords(String firstPassword, String secondPassword) {
-		//if (firstPassword.equals(secondPassword)) return true;
-		//else return false;
-		return true;
+		if (firstPassword.equals(secondPassword)) return true;
+		else return false;
 	}
 	
 }
