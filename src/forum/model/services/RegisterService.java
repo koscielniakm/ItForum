@@ -57,7 +57,7 @@ public class RegisterService {
 	}
 	private ValidationResult correctPassword(String password) {
 		if (getValidator().validatePassword(password)) return ValidationResult.SUCCESS;
-		else return ValidationResult.ERROR_WRONG_PASSWORD;
+		else return ValidationResult.ERROR_WRONG_PASSWORD_LENGTH;
 	}
 	private ValidationResult comparePasswords(String firstPassword, String secondPassword) {
 		if (firstPassword.equals(secondPassword)) return ValidationResult.SUCCESS;

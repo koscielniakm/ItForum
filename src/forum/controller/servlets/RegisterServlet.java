@@ -50,7 +50,7 @@ public class RegisterServlet extends HttpServlet {
 			return "Użytkownik wykorzystujący wpisane dane już instnieje.";
 		else if (result == ValidationResult.ERROR_WRONG_LOGIN)
 			return "Błędny login.";
-		else if (result == ValidationResult.ERROR_WRONG_PASSWORD)
+		else if (result == ValidationResult.ERROR_WRONG_PASSWORD_LENGTH)
 			return "Błędne hasło.";
 		else if (result == ValidationResult.ERROR_WRONG_EMAIL)
 			return "Błędny e-mail.";

@@ -40,12 +40,14 @@
 				</div>
 			</form>
 			
-			<form action="update" method="post">
+			<form action="changepassword" method="post">
 				<h4>Zmiana hasła</h4>
 				<div class="form-group">
-					<input type="password" name="password" placeholder="Hasło"/>
+					<input type="password" name="password" placeholder="Obecne hasło"/>
+					<small class="form-text text-muted">Podaj obecne hasło.</small><br>
+					<input type="password" name="newpassword" placeholder="Nowe hasło"/>
 					<small class="form-text text-muted">Podaj nowe hasło.</small><br>
-					<input type="password" name="password2" placeholder="Powtórz hasło"/>
+					<input type="password" name="newpassword2" placeholder="Powtórz nowe hasło"/>
 					<small class="form-text text-muted">Powtórz nowe hasło.</small><br>
 					<input type="submit" class="btn btn-primary" value="Zmien hasło" />
 				</div>

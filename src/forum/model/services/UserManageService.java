@@ -36,18 +36,22 @@ public class UserManageService {
 		}
 	}
 	
-	public ValidationResult changePassword(UserEntity user, String newPassword, String newPasswordCommit) {
-		boolean passwordsEquality = validator.comparePasswords(newPassword, newPasswordCommit);
+	public ValidationResult changePassword(UserEntity user, String currentPassword, String newPassword, String newPasswordCommit) {
+		boolean newPasswordsEquality = validator.comparePasswords(newPassword, newPasswordCommit);
+		boolean oldAndNewPasswordsComparation = validator.comparePasswords(newPassword, newPasswordCommit);
 		boolean passwordValidation = validator.validatePassword(newPassword);
-		if (!passwordsEquality) {
+		if (!newPasswordsEquality) {
 			return ValidationResult.ERROR_DIFFERENT_PASSWORDS;
 		} else if (!passwordValidation) {
-			return ValidationResult.ERROR_WRONG_PASSWORD;
-		} else {
+			return ValidationResult.ERROR_WRONG_PASSWORD_LENGTH;
+		} else if (!oldAndNewPasswordsComparation) {
+			return ValidationResult.ERROR_WRONG_OLDNEW_COMPARATION;
+		} else if (oldAndNewPasswordsComparation && newPasswordsEquality && passwordValidation) {
 			user.setPassword(newPassword);
 			userAccess.update(user);
 			return ValidationResult.SUCCESS;
 		}
+		return ValidationResult.ERROR;
 	}
 	
 	

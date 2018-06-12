@@ -39,6 +39,7 @@ public class DataValidator {
 				password.length() <= MAX_PASSWORD_LENGTH) return true;
 		else return false;
 	}
+	
 	public boolean comparePasswords(String firstPassword, String secondPassword) {
 		if (firstPassword.equals(secondPassword)) return true;
 		else return false;
