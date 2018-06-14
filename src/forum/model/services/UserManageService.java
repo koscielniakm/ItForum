@@ -21,8 +21,13 @@ public class UserManageService {
 		userAccess.update(user);
 	}
 	
-	public void deleteUser(Integer userId) {
+	private void deleteUser(Integer userId) {
 		userAccess.delete(userId);
+	}
+	
+	public void deleteUser(UserEntity user, String password) {
+		if (user.getPassword().equals(password))
+			deleteUser(user.getId());
 	}
 	
 	public ValidationResult changeEmail(UserEntity user, String email) {

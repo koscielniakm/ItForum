@@ -53,10 +53,10 @@
 				</div>
 			</form>
 			
-			<form action="update" method="post">
+			<form action="deleteuser" method="post">
 				<h4>Usunięcie konta</h4>
 				<div class="form-group">
-					<input type="password" name="password" placeholder="Hasło"/>
+					<input type="password" name="deletepassword" placeholder="Hasło"/>
 					<small class="form-text text-muted">Podaj swoje hasło.</small><br>
 					<input type="submit" class="btn btn-danger" value="Usuń konto" />
 				</div>

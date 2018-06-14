@@ -13,8 +13,8 @@ import forum.model.services.LoginService;
 
 @WebServlet(name = "login", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
-
-	private static final long serialVersionUID = -6386146130291401887L;
+	
+	private static final long serialVersionUID = -7950948672078098381L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
