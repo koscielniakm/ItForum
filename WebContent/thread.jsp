@@ -15,9 +15,8 @@
 	<div class="container">
 	
 		<jsp:include page="navbar.jsp" />
-		<div class="jumbotron">
-			<h1>Forum</h1>
-		</div>
+		
+		<jsp:include page="header.jsp" />
 		
 		<div class="post">
 			<div class="post-header bg-warning text-dark row">
@@ -56,5 +55,8 @@
 		</c:choose>
 		
 	</div>
+	
+	<jsp:include page="footer.jsp" />
+	
 </body>
 </html>

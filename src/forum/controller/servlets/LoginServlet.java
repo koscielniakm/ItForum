@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 		UserEntity loggedUser = login(loginOrEmail, password);
 		if (loggedUser == null) {
 			request.setAttribute("error", "Błędny login lub hasło.");
-			request.getRequestDispatcher("/login").forward(request, response);
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		} else {
 			request.getSession(true).setAttribute("user", loggedUser);
 			request.getRequestDispatcher("/index").forward(request, response);

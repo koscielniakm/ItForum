@@ -14,9 +14,8 @@
 	<div class="container">
 	
 		<jsp:include page="navbar.jsp" />
-		<div class="jumbotron">
-			<h1>Forum</h1>
-		</div>
+		
+		<jsp:include page="header.jsp" />
 
 		<form class="row" action="create" method="post">
 			<div class="form-group">
@@ -32,5 +31,8 @@
 			</div>
 		</form>
 	</div>
+	
+	<jsp:include page="footer.jsp" />
+	
 </body>
 </html>

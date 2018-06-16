@@ -14,9 +14,8 @@
 	<div class="container">
 	
 		<jsp:include page="navbar.jsp" />
-		<div class="jumbotron">
-			<h1>Forum</h1>
-		</div>
+		
+		<jsp:include page="header.jsp" />
 		
 		<p class="text-primary row">${ requestScope.error }</p>
 		
@@ -32,5 +31,8 @@
 			<input type="submit" value="Logowanie" class="btn btn-primary"/>
 		</form>
 	</div>
+	
+	<jsp:include page="footer.jsp" />
+	
 </body>
 </html>

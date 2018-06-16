@@ -12,10 +12,11 @@
 </head>
 <body>
 	<div class="container">
+	
 		<jsp:include page="navbar.jsp" />
-		<div class="jumbotron">
-			<h1>Forum</h1>
-		</div>
+		
+		<jsp:include page="header.jsp" />
+		
 		<div class="panel panel-default row">
 			<div class="panel-heading bg-primary text-dark">
 				<h3 class="panel-title">
@@ -44,5 +45,8 @@
 			</div>
 		</div>
 	</div>
+	
+	<jsp:include page="footer.jsp" />
+	
 </body>
 </html>

@@ -14,10 +14,9 @@ public class CreateThreadServlet extends HttpServlet {
 	private static final long serialVersionUID = 196028239179202695L;
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws IOException, ServletException {	
 		response.setContentType("text/html; charset=utf-8");
-		
 		request.getRequestDispatcher("/index.jsp").forward(request, response);
 	}
 	

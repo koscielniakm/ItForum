@@ -39,8 +39,7 @@ public class DaoUser extends AbstractDao implements Dao<UserEntity> {
 		return users;
 	}
 	
-	public UserEntity findByLoginAndPassword
-		(String loginOrEmail, String password) {
+	public UserEntity findByLoginAndPassword (String loginOrEmail, String password) {
 		String queryString = "SELECT u FROM UserEntity u"
 			+ " WHERE u.password = :password AND u.login = :loginEmail"
 			+ " OR u.password = :password AND u.email = :loginEmail";
