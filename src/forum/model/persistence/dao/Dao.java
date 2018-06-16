@@ -1,4 +1,4 @@
-package forum.model.dao;
+package forum.model.persistence.dao;
 
 import java.util.List;
 

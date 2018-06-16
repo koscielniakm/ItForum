@@ -1,11 +1,11 @@
-package forum.model.dao;
+package forum.model.persistence.dao;
 
 import java.util.List;
 
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
-import forum.model.entities.UserEntity;
+import forum.model.persistence.entities.UserEntity;
 
 public class DaoUser extends AbstractDao implements Dao<UserEntity> {
 

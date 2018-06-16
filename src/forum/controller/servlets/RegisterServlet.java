@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import forum.model.services.ValidationResult;
-import forum.model.services.RegisterService;
+import forum.model.services.auth.RegisterService;
+import forum.model.services.auth.AuthValidationResult;
 
 @WebServlet(name = "register", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
@@ -28,33 +28,33 @@ public class RegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws IOException, ServletException {
 		response.setContentType("text/html; charset=utf-8");
-		ValidationResult result = register(request);
+		AuthValidationResult result = register(request);
 		request.setAttribute("result", getRegisterResultInfo(result));
 		request.getRequestDispatcher("/register.jsp").forward(request, response);
 	}
 	
-	private ValidationResult register(HttpServletRequest request) {
+	private AuthValidationResult register(HttpServletRequest request) {
 		RegisterService register = new RegisterService();
 		String email = request.getParameter("email");
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
 		String password2 = request.getParameter("password2");
-		ValidationResult result = register.register(login, password, password2, email);
+		AuthValidationResult result = register.register(login, password, password2, email);
 		return result;
 	}
 	
-	private String getRegisterResultInfo(ValidationResult result) {
-		if (result == ValidationResult.SUCCESS)
+	private String getRegisterResultInfo(AuthValidationResult result) {
+		if (result == AuthValidationResult.SUCCESS)
 			return "Rejestracja pomyślna. Możesz się zalogować.";
-		else if (result == ValidationResult.ERROR_USER_EXIST)
+		else if (result == AuthValidationResult.ERROR_USER_EXIST)
 			return "Użytkownik wykorzystujący wpisane dane już instnieje.";
-		else if (result == ValidationResult.ERROR_WRONG_LOGIN)
+		else if (result == AuthValidationResult.ERROR_WRONG_LOGIN)
 			return "Błędny login.";
-		else if (result == ValidationResult.ERROR_WRONG_PASSWORD_LENGTH)
+		else if (result == AuthValidationResult.ERROR_WRONG_PASSWORD_LENGTH)
 			return "Błędne hasło.";
-		else if (result == ValidationResult.ERROR_WRONG_EMAIL)
+		else if (result == AuthValidationResult.ERROR_WRONG_EMAIL)
 			return "Błędny e-mail.";
-		else if (result == ValidationResult.ERROR_DIFFERENT_PASSWORDS)
+		else if (result == AuthValidationResult.ERROR_DIFFERENT_PASSWORDS)
 			return "Podane hasła nie są identyczne.";
 		else
 			return "Bład rejestracji.";

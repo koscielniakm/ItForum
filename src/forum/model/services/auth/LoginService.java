@@ -1,7 +1,7 @@
-package forum.model.services;
+package forum.model.services.auth;
 
-import forum.model.dao.DaoUser;
-import forum.model.entities.UserEntity;
+import forum.model.persistence.dao.DaoUser;
+import forum.model.persistence.entities.UserEntity;
 
 public class LoginService {
 

@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import forum.model.entities.UserEntity;
-import forum.model.services.UserManageService;
-import forum.model.services.ValidationResult;
+import forum.model.persistence.entities.UserEntity;
+import forum.model.services.auth.AuthValidationResult;
+import forum.model.services.entityservices.UserManageService;
 
 @WebServlet(name = "changeEmail", urlPatterns = "/changeemail")
 public class ChangeEmailServlet extends HttpServlet {
@@ -29,12 +29,12 @@ public class ChangeEmailServlet extends HttpServlet {
 		UserEntity loggedUser = (UserEntity) request.getSession().getAttribute("user");
 		String newEmail = (String) request.getParameter("email");
 		UserManageService userService = new UserManageService();
-		ValidationResult changeEmailResult = userService.changeEmail(loggedUser, newEmail);
+		AuthValidationResult changeEmailResult = userService.changeEmail(loggedUser, newEmail);
 		addResultInformation(request, changeEmailResult);
 	}
 	
-	private void addResultInformation(HttpServletRequest request, ValidationResult result) {
-		if (result == ValidationResult.SUCCESS)
+	private void addResultInformation(HttpServletRequest request, AuthValidationResult result) {
+		if (result == AuthValidationResult.SUCCESS)
 			request.setAttribute("changeinfo", "Adres e-mail został pomyślnie zmieniony.");
 		else
 			request.setAttribute("changeinfo", "Podany adres e-mail jest nieprawidłowy.");

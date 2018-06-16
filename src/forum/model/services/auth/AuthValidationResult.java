@@ -1,6 +1,6 @@
-package forum.model.services;
+package forum.model.services.auth;
 
-public enum ValidationResult {
+public enum AuthValidationResult {
 	SUCCESS, // correct
 	ERROR, // undefined error
 	ERROR_USER_EXIST, // user login or email already exist

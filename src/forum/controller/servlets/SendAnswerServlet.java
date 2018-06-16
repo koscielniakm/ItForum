@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import forum.model.entities.UserEntity;
-import forum.model.services.AnswerManageService;
+import forum.model.persistence.entities.UserEntity;
+import forum.model.services.entityservices.AnswerManageService;
 
 @WebServlet(name = "sendanswer", urlPatterns = "/sendanswer")
 public class SendAnswerServlet extends HttpServlet {

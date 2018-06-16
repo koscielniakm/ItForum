@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import forum.model.entities.UserEntity;
-import forum.model.services.UserManageService;
+import forum.model.persistence.entities.UserEntity;
+import forum.model.services.entityservices.UserManageService;
 
 @WebServlet(name = "deleteUser", urlPatterns = "/deleteuser")
 public class DeleteUserServlet extends HttpServlet {

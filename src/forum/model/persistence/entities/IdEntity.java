@@ -1,4 +1,4 @@
-package forum.model.entities;
+package forum.model.persistence.entities;
 
 public interface IdEntity {
 	Integer getId();

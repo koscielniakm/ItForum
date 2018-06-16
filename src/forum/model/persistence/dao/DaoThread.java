@@ -1,8 +1,8 @@
-package forum.model.dao;
+package forum.model.persistence.dao;
 
 import java.util.List;
 
-import forum.model.entities.ThreadEntity;
+import forum.model.persistence.entities.ThreadEntity;
 
 public class DaoThread extends AbstractDao implements Dao<ThreadEntity> {
 

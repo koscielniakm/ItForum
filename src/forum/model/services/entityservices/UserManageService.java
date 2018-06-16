@@ -1,16 +1,18 @@
-package forum.model.services;
+package forum.model.services.entityservices;
 
-import forum.model.dao.DaoUser;
-import forum.model.entities.UserEntity;
+import forum.model.persistence.dao.DaoUser;
+import forum.model.persistence.entities.UserEntity;
+import forum.model.services.auth.AuthDataValidator;
+import forum.model.services.auth.AuthValidationResult;
 
 public class UserManageService {
 
-	private DataValidator validator;
+	private AuthDataValidator validator;
 	private DaoUser userAccess;
 	
 	public UserManageService() {
 		userAccess = new DaoUser();
-		validator = new DataValidator();
+		validator = new AuthDataValidator();
 	}
 	
 	public void insertUser(UserEntity user) {
@@ -30,33 +32,33 @@ public class UserManageService {
 			deleteUser(user.getId());
 	}
 	
-	public ValidationResult changeEmail(UserEntity user, String email) {
+	public AuthValidationResult changeEmail(UserEntity user, String email) {
 		boolean emailValidation = validator.validateEmail(email);
 		if (emailValidation) {
 			user.setEmail(email);
 			userAccess.update(user);
-			return ValidationResult.SUCCESS;
+			return AuthValidationResult.SUCCESS;
 		} else {
-			return ValidationResult.ERROR_WRONG_EMAIL;
+			return AuthValidationResult.ERROR_WRONG_EMAIL;
 		}
 	}
 	
-	public ValidationResult changePassword(UserEntity user, String currentPassword, String newPassword, String newPasswordCommit) {
+	public AuthValidationResult changePassword(UserEntity user, String currentPassword, String newPassword, String newPasswordCommit) {
 		boolean newPasswordsEquality = validator.comparePasswords(newPassword, newPasswordCommit);
 		boolean oldAndNewPasswordsComparation = validator.comparePasswords(newPassword, newPasswordCommit);
 		boolean passwordValidation = validator.validatePassword(newPassword);
 		if (!newPasswordsEquality) {
-			return ValidationResult.ERROR_DIFFERENT_PASSWORDS;
+			return AuthValidationResult.ERROR_DIFFERENT_PASSWORDS;
 		} else if (!passwordValidation) {
-			return ValidationResult.ERROR_WRONG_PASSWORD_LENGTH;
+			return AuthValidationResult.ERROR_WRONG_PASSWORD_LENGTH;
 		} else if (!oldAndNewPasswordsComparation) {
-			return ValidationResult.ERROR_WRONG_OLDNEW_COMPARATION;
+			return AuthValidationResult.ERROR_WRONG_OLDNEW_COMPARATION;
 		} else if (oldAndNewPasswordsComparation && newPasswordsEquality && passwordValidation) {
 			user.setPassword(newPassword);
 			userAccess.update(user);
-			return ValidationResult.SUCCESS;
+			return AuthValidationResult.SUCCESS;
 		}
-		return ValidationResult.ERROR;
+		return AuthValidationResult.ERROR;
 	}
 	
 	

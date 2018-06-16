@@ -1,4 +1,4 @@
-package forum.model.services;
+package forum.model.services.auth;
 
 public class PasswordHasher {
 	

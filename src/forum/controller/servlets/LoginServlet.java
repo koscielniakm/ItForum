@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import forum.model.entities.UserEntity;
-import forum.model.services.LoginService;
+import forum.model.persistence.entities.UserEntity;
+import forum.model.services.auth.LoginService;
 
 @WebServlet(name = "login", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {

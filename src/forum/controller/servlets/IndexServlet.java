@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import forum.model.dao.DaoThread;
+import forum.model.persistence.dao.DaoThread;
 
 @WebServlet(name = "index", urlPatterns = "/index")
 public class IndexServlet extends HttpServlet {

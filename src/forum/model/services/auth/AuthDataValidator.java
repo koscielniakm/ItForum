@@ -1,6 +1,6 @@
-package forum.model.services;
+package forum.model.services.auth;
 
-public class DataValidator {
+public class AuthDataValidator {
 	
 	private static final int MIN_LOGIN_LENGTH = 5;
 	private static final int MAX_LOGIN_LENGTH = 20;

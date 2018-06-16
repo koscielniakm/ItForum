@@ -1,8 +1,8 @@
-package forum.model.dao;
+package forum.model.persistence.dao;
 
 import java.util.List;
 
-import forum.model.entities.AnswerEntity;
+import forum.model.persistence.entities.AnswerEntity;
 
 public class DaoAnswer extends AbstractDao implements Dao<AnswerEntity> {
 

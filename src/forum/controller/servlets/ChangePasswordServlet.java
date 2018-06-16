@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import forum.model.entities.UserEntity;
-import forum.model.services.UserManageService;
-import forum.model.services.ValidationResult;
+import forum.model.persistence.entities.UserEntity;
+import forum.model.services.auth.AuthValidationResult;
+import forum.model.services.entityservices.UserManageService;
 
 @WebServlet(name = "changePassword", urlPatterns = "/changepassword")
 public class ChangePasswordServlet extends HttpServlet {
@@ -31,21 +31,21 @@ public class ChangePasswordServlet extends HttpServlet {
 		String newPassword = (String) request.getParameter("newpassword");
 		String newPassword2 = (String) request.getParameter("newpassword2");
 		UserManageService userService = new UserManageService();
-		ValidationResult changePasswordResult = userService.
+		AuthValidationResult changePasswordResult = userService.
 			changePassword(loggedUser, currentPassword, newPassword, newPassword2);
 		addResultInformation(request, changePasswordResult);
 	}
 	
-	private void addResultInformation(HttpServletRequest request, ValidationResult result) {
-		if (result == ValidationResult.ERROR)
+	private void addResultInformation(HttpServletRequest request, AuthValidationResult result) {
+		if (result == AuthValidationResult.ERROR)
 			request.setAttribute("changeinfo", "Nieznany błąd.");
-		else if (result == ValidationResult.ERROR_DIFFERENT_PASSWORDS) 
+		else if (result == AuthValidationResult.ERROR_DIFFERENT_PASSWORDS) 
 			request.setAttribute("changeinfo", "Podane hasła różnią się.");
-		else if (result == ValidationResult.ERROR_WRONG_OLDNEW_COMPARATION) 
+		else if (result == AuthValidationResult.ERROR_WRONG_OLDNEW_COMPARATION) 
 			request.setAttribute("changeinfo", "Wprowadzono błędne hasło.");
-		else if (result == ValidationResult.ERROR_WRONG_PASSWORD_LENGTH) 
+		else if (result == AuthValidationResult.ERROR_WRONG_PASSWORD_LENGTH) 
 			request.setAttribute("changeinfo", "Wprowadzone hasło nie spełnia wymagań.");
-		else if (result == ValidationResult.SUCCESS) 
+		else if (result == AuthValidationResult.SUCCESS) 
 			request.setAttribute("changeinfo", "Pomyślnie zmieniono hasło.");
 	}
 	

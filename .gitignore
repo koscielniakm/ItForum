@@ -1,7 +1,7 @@
 /build/
-/.settings/
-/WebContent/META-INF/*
-/WebContent/WEB-INF/*
-/WebContent/js/*
-/WebContent/css/*
-/WebContent/fonts/*
+/WebContent/css
+/WebContent/fonts
+/WebContent/js/
+/WebContent/WEB-INF/lib/
+/WebContent/META-INF/
+

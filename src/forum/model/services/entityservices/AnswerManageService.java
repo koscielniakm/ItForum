@@ -1,13 +1,13 @@
-package forum.model.services;
+package forum.model.services.entityservices;
 
 import java.util.Date;
 
-import forum.model.dao.DaoAnswer;
-import forum.model.dao.DaoThread;
-import forum.model.dao.DaoUser;
-import forum.model.entities.AnswerEntity;
-import forum.model.entities.ThreadEntity;
-import forum.model.entities.UserEntity;
+import forum.model.persistence.dao.DaoAnswer;
+import forum.model.persistence.dao.DaoThread;
+import forum.model.persistence.dao.DaoUser;
+import forum.model.persistence.entities.AnswerEntity;
+import forum.model.persistence.entities.ThreadEntity;
+import forum.model.persistence.entities.UserEntity;
 
 public class AnswerManageService {
 
