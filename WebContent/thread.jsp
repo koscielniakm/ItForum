@@ -7,17 +7,17 @@
 <head>
 	<title>${ requestScope.thread.title } - Forum</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" href="style.css" type="text/css" />
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
+	<jsp:include page="style.jsp" />
 </head>
 <body>
+
+	<div class="container-fluid">
+		<jsp:include page="navbar.jsp" />
+		<jsp:include page="header.jsp" />	
+	</div>
+	
 	<div class="container">
 	
-		<jsp:include page="navbar.jsp" />
-		
-		<jsp:include page="header.jsp" />
-		
 		<div class="post">
 			<div class="post-header bg-warning text-dark row">
 				<p class="post-author col-lg-2">${ requestScope.thread.author.login }</p>
