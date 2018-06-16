@@ -20,7 +20,7 @@
 		<div class="panel panel-default row">
 			<div class="panel-heading bg-primary text-dark">
 				<h3 class="panel-title">
-					<span>Tematy </span><a href="create">[Utwórz temat]</a>
+					<span>Tematy</span><a href="create">[Utwórz temat]</a>
 				</h3>
 			</div>
 			<div class="panel-body">
