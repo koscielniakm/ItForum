@@ -1,6 +1,6 @@
 Project in progress ...
-# Forum
-Simple web application.
+# ItForum
+Project of web forum about programming.
 
 __Backend :__ Java 8, Java EE6, JPA(with Hibernate ORM), MySQL, Apache Tomcat.
 
