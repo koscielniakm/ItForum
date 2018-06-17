@@ -2,10 +2,7 @@
 body{
 	color: white;
 	background: black;
-	/*
-	background-image: url("img/bg.jpg");
-	background-size: 100% 100%;
-	*/
+	font-family: 'Lato', sans-serif;
 	margin: 0;
 	padding: 0;
 }
@@ -86,16 +83,27 @@ a:focus{
 	text-align: left;
 }
 .navbar-btn{
-	margin: 5px;
-	padding: 0;
-	float: left;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 2px;
 	background: none;
 	border: none;
 }
-.navbar-icon{
-	width: 30px;
-	height: 30px;
+.navbar-btn:hover{
+	background: #303030;
 }
+.navbar-btn:hover .navbar-btn-img{
+	filter: none;
+}
+.navbar-btn-text{
+}
+.navbar-btn-img{
+	width: 15px;
+	height: 15px;
+	margin-bottom: 2px;
+	filter: grayscale(50%);
+}
+
 
 
 /* index */
