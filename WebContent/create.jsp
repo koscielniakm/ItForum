@@ -11,14 +11,12 @@
 <body>
 
 	<div class="container-fluid">
-		<jsp:include page="navbar.jsp" />
 		<jsp:include page="header.jsp" />	
+		<jsp:include page="navbar.jsp" />
 	</div>
 
 	<div class="container">
 	
-
-
 		<form class="row" action="create" method="post">
 			<div class="form-group">
 				<input type="text" name="title" placeholder="Tytuł"/>

@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <div id="footer" class="text-center">
-	<p class="footer-text">App Footer</p>
+	<p class="footer-text"></p>
+	<p class="footer-text">Icons from icons8.com </p>
 </div>
 
