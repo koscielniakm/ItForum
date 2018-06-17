@@ -18,30 +18,49 @@
 	
 	<div class="container">
 	
-		<div class="post">
-			<div class="post-header bg-warning text-dark row">
-				<p class="post-author col-lg-2">${ requestScope.thread.author.login }</p>
-				<p class="post-title col-lg-8">${ requestScope.thread.title }</p>
-				<p class="post-date col-lg-2">${ requestScope.thread.postDate }</p>
+		<!-- Post -->
+		<div class="post row">
+			<div class="post-userpanel col-lg-2">
+				<div class="post-userimg-slot text-center">
+					<img src="img/users/default.png" class="post-userimg">
+					<p class="">${ requestScope.thread.author.login }</p>
+					<p class="">Rejestracja : ${ requestScope.thread.author.registerDate }</p>
+				</div>
 			</div>
-			<div class="post-body row">
-				<p class="post-content col-lg-12">${ requestScope.thread.content }</p>
-			</div>
+			<div class="col-lg-10">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="post-title col-lg-12">
+							<div class="text-left">${ requestScope.thread.title }</div>
+						</div>
+						<p class="post-content col-lg-12">${ requestScope.thread.content }</p>
+					</div>
+				</div>
+			</div>		
 		</div>
-
+		
+		<!-- Answers -->
 		<c:forEach var="a" items="${ requestScope.thread.answers }">
-			<div class="post">
-				<div class="post-header bg-primary text-dark row">
-					<p class="post-author col-lg-2">${ a.answerAuthor.login }</p>
-					<p class="post-author col-lg-8">&nbsp;</p>
-					<p class="post-date col-lg-2">${ a.postDate }</p>
+			<div class="post row">
+				<div class="post-userpanel col-lg-2">
+					<div class="post-userimg-slot text-center">
+						<img src="img/users/default.png" class="post-userimg">
+						<p class="">${ a.answerAuthor.login }</p>
+						<p class="">Rejestracja : ${ a.answerAuthor.registerDate }</p>
+					</div>
 				</div>
-				<div class="post-body row">
-					<p class="post-content col-lg-12">${ a.content }</p>
-				</div>
-			</div>	
+				<div class="col-lg-10">
+					<div class="container-fluid">
+						<div class="row">
+							<p class="post-title col-lg-12">Re : ${ requestScope.thread.title }</p>
+							<p class="post-content col-lg-12">${ a.content }</p>
+						</div>
+					</div>
+				</div>		
+			</div>
 		</c:forEach>
-			
+		
+		<!-- 
 		<c:choose>
 			<c:when test="${ user != null }">
 				<div class="thread-input-area">
@@ -53,7 +72,7 @@
 				</div>
 			</c:when>
 		</c:choose>
-		
+		-->
 	</div>
 	
 	<jsp:include page="footer.jsp" />

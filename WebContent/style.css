@@ -11,6 +11,8 @@ h1{
 }
 p{
 	color: white;
+	margin: 0;
+	padding: 0;
 }
 
 table-cell{
@@ -81,6 +83,8 @@ a:focus{
 
 #navbar{
 	text-align: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 .navbar-btn{
 	margin-top: 5px;
@@ -139,6 +143,33 @@ a:focus{
 	margin-right: 10px!important;
 }
 
+/* Posts in thread pages*/
+.post{
+	border: 1px solid #252525;	
+	background: #151515;
+}
+.post-header{
+	height: 22px;
+	background: #202020;
+}
+.post-userpanel{
+	border-right: 1px solid #252525;	
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background: #202020;
+}
+.post-userimg-slot{
+
+}
+.post-title{
+	font-size: 20px;
+	color: #4D68AC;
+}
+.post-content{
+	color: #B0B0B0;
+}
+
+/* Footer */
 #footer {
 	background: #363636;
 	margin-top: 60px;
