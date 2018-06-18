@@ -3,6 +3,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="user" scope="session" value="${ user }" />
+
 <html>
 <head>
 	<title>${ requestScope.thread.title } - Forum</title>
@@ -24,12 +25,12 @@
 				<div class="post-userimg-slot text-center">
 					<img src="img/users/default.png" class="post-userimg">
 					<p class="">${ requestScope.thread.author.login }</p>
-					<p class="">Rejestracja : ${ requestScope.thread.author.registerDate }</p>
+					<p class="post-userpanel-register">Rejestracja : ${ requestScope.thread.author.registerDate }</p>
 				</div>
 			</div>
 			<div class="col-lg-10">
 				<div class="container-fluid">
-					<div class="row">
+					<div class="post-content-slot row">
 						<div class="post-title col-lg-12">
 							<div class="text-left">${ requestScope.thread.title }</div>
 						</div>
@@ -46,13 +47,12 @@
 					<div class="post-userimg-slot text-center">
 						<img src="img/users/default.png" class="post-userimg">
 						<p class="">${ a.answerAuthor.login }</p>
-						<p class="">Rejestracja : ${ a.answerAuthor.registerDate }</p>
+						<p class="post-userpanel-register">Rejestracja : ${ a.answerAuthor.registerDate }</p>
 					</div>
 				</div>
 				<div class="col-lg-10">
 					<div class="container-fluid">
 						<div class="row">
-							<p class="post-title col-lg-12">Re : ${ requestScope.thread.title }</p>
 							<p class="post-content col-lg-12">${ a.content }</p>
 						</div>
 					</div>
@@ -60,22 +60,26 @@
 			</div>
 		</c:forEach>
 		
-		<!-- 
+		 <!-- Add answer form -->
 		<c:choose>
 			<c:when test="${ user != null }">
-				<div class="thread-input-area">
+				<div class="thread-input-area row">
 					<form action="sendanswer" method="post">
 						<input type="hidden" name="tid" value="${ requestScope.thread.id }" />
-						<input name="content" type="text" class="thread-answer-area row" placeholder="Twoja odpowiedz "/><br>
-						<input class="btn btn-primary" type="submit" value="Wyślij" />
+						<input type="hidden" name="content" class="thread-answer-area" id="post-answer-content" placeholder="Twoja odpowiedz "/><br>
+						<textarea name="textarea" id="post-answer-area" class="col-lg-12"></textarea><br>
+						<input class="btn" type="submit" value="Wyślij" id="post-answer-btn" />
+						<input class="btn" type="reset" value="Wyczyść" id="post-reset-btn" />
 					</form>
 				</div>
 			</c:when>
 		</c:choose>
-		-->
 	</div>
 	
 	<jsp:include page="footer.jsp" />
+	
+	<!-- Scripts -->
+	<script src="scripts/pages/thread.js"></script>
 	
 </body>
 </html>

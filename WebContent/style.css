@@ -14,11 +14,12 @@ p{
 	margin: 0;
 	padding: 0;
 }
-
+form{
+	margin-top: 0;
+	padding-top: 0;	
+}
 table-cell{
 	vertical-align: middle;
-}
-td{
 }
 tr{
 	height: 30px;
@@ -31,7 +32,9 @@ thead{
 tbody{
 	background: #151515;
 }
-
+textarea {
+    resize: none;
+}
 a{
 	color: white;
 	text-decoration: none;
@@ -45,6 +48,7 @@ a:focus{
 	text-decoration: none;	
 }
 
+
 /* Bootstrap classes override */
 .table thead tr th, .table tbody tr td {
     border: none;
@@ -54,7 +58,7 @@ a:focus{
 }
 /******************************/
 
-#header-container {
+#header-container{
 	width: 100%;
 	height: 150px;
 	background: url("img/header.jpg");
@@ -147,6 +151,7 @@ a:focus{
 .post{
 	border: 1px solid #252525;	
 	background: #151515;
+	display: flex;
 }
 .post-header{
 	height: 22px;
@@ -157,21 +162,56 @@ a:focus{
 	padding-top: 15px;
 	padding-bottom: 15px;
 	background: #202020;
+	flex-direction: row-reverse; 
+}
+.post-userpanel-register{
+	font-size: 12px;
+	color: #B0B0B0;
 }
 .post-userimg-slot{
 
 }
+.post-content-slot{
+	flex-direction: row-reverse;
+}
 .post-title{
 	font-size: 20px;
-	color: #4D68AC;
+	color: #2980b9;
+	padding-top: 10px;
 }
 .post-content{
 	color: #B0B0B0;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
+#post-answer-area{
+	background: #151515;
+	border: 1px solid #252525;
+	color: #B0B0B0;
+	flex-direction: column-reverse;
+}
+#post-answer-btn{
+	margin-top: 10px;
+	background: #151515;
+	color: #2980b9;
+}
+#post-answer-btn:hover{
+	background: #252525;
+}
+#post-reset-btn{
+	margin-top: 10px;
+	background: #151515;
+	color: #b0B0B0;	
+}
+#post-reset-btn:hover{
+	background: #252525;	
+}
+
+
 
 /* Footer */
 #footer {
-	background: #363636;
+	background: #151515;
 	margin-top: 60px;
 	position: initial;
 	bottom: 0;
@@ -179,6 +219,6 @@ a:focus{
 	height: 60px;	
 }
 .footer-text{
-	color: black;
+	color: #AAAAAA;
 }
 

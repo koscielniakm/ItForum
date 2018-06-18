@@ -19,14 +19,27 @@ public class SendAnswerServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws IOException, ServletException {
+		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
 		insertAnswer(request);
 		response.sendRedirect("thread?id=" + request.getParameter("tid"));
 	}
 	
 	private void insertAnswer(HttpServletRequest request) {
-		if (request.getSession(false).getAttribute("user") != null) {
+		if (request.getSession(false).getAttribute("user") != null) {		
 			String content = request.getParameter("content");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+			
+			System.out.println(content);
+			
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
 			UserEntity author = (UserEntity) request.getSession(false).getAttribute("user");	
 			Integer threadId = Integer.parseInt(request.getParameter("tid"));
 			AnswerManageService answerService = new AnswerManageService();
