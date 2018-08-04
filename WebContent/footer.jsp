@@ -3,6 +3,11 @@
 
 <div id="footer" class="text-center">
 	<p class="footer-text"></p>
-	<p class="footer-text">Icons from icons8.com </p>
+	<p class="footer-text">© 2018 Mateusz Kościelniak </p>
+	<p class="footer-text">
+		<a href="https://github.com/koscielniakm" class="footer-text">
+			Visit my <span class="footer-link">GitHub</span>
+		</a>
+	</p>
 </div>
 
